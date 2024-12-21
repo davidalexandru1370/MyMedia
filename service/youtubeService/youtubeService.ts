@@ -1,4 +1,4 @@
-import { Downloader } from "ytdl-mp3";
+import ytdl from "@distube/ytdl-core";
 
 interface VideoSettings {
   quality: number;
@@ -15,10 +15,6 @@ interface IYoutubeService {
 
 export class YoutubeService implements IYoutubeService {
   async download(url: string, options: YoutubeSettings): Promise<void> {
-    const downloader = new Downloader({
-      outputDir: options.savePath,
-    });
-
-    await downloader.downloadSong(url);
+    ytdl(url).pipe(require("fs").createWriteStream("video.mp4"));
   }
 }
