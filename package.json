@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "ytdl-mp3": "^5.2.0"
   }
 }
